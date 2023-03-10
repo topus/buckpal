@@ -6,7 +6,6 @@ import java.util.Optional;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Value;
 
 /**
  * An account that holds a certain amount of money. An {@link Account} object only
@@ -20,7 +19,7 @@ public class Account {
 	/**
 	 * The unique ID of the account.
 	 */
-	@Getter private final AccountId id;
+	private final AccountId id;
 
 	/**
 	 * The baseline balance of the account. This was the balance of the account before the first
@@ -32,16 +31,6 @@ public class Account {
 	 * The window of latest activities on this account.
 	 */
 	@Getter private final ActivityWindow activityWindow;
-
-	/**
-	 * Creates an {@link Account} entity without an ID. Use to create a new entity that is not yet
-	 * persisted.
-	 */
-	public static Account withoutId(
-					Money baselineBalance,
-					ActivityWindow activityWindow) {
-		return new Account(null, baselineBalance, activityWindow);
-	}
 
 	/**
 	 * Creates an {@link Account} entity with an ID. Use to reconstitute a persisted entity.
@@ -110,9 +99,7 @@ public class Account {
 		return true;
 	}
 
-	@Value
-	public static class AccountId {
-		private Long value;
+	public record AccountId(@Getter Long value) {
 	}
 
 }

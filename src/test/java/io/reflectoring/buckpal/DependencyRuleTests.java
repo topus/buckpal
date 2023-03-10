@@ -14,15 +14,15 @@ class DependencyRuleTests {
 				.withDomainLayer("domain")
 
 				.withAdaptersLayer("adapter")
-				.incoming("in.web")
-				.outgoing("out.persistence")
-				.and()
+					.incomingAdapters("in.web")
+					.outgoingAdapters("out.persistence")
+				    .and()
 
 				.withApplicationLayer("application")
-				.services("service")
-				.incomingPorts("port.in")
-				.outgoingPorts("port.out")
-				.and()
+					.services("service")
+					.incomingPorts("port.in")
+					.outgoingPorts("port.out")
+				    .and()
 
 				.withConfiguration("configuration")
 				.check(new ClassFileImporter()
@@ -33,12 +33,12 @@ class DependencyRuleTests {
 	void testPackageDependencies() {
 		noClasses()
 				.that()
-				.resideInAPackage("io.reflectoring.reviewapp.domain..")
+				.resideInAPackage("io.reflectoring.buckpal.account.domain..")
 				.should()
 				.dependOnClassesThat()
-				.resideInAnyPackage("io.reflectoring.reviewapp.application..")
+				.resideInAnyPackage("io.reflectoring.buckpal.account.application..")
 				.check(new ClassFileImporter()
-						.importPackages("io.reflectoring.reviewapp.."));
+						.importPackages("io.reflectoring.buckpal.."));
 	}
 
 }
