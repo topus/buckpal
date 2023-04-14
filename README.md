@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/topus/buckpal/actions/workflows/ci.yml/badge.svg)](https://github.com/topus/buckpal/actions/workflows/ci.yml)
 
-[![Get Your Hands Dirty On Clean Architecture](https://reflectoring.io/assets/img/get-your-hands-dirty-260x336.png)](https://reflectoring.io/book)
+[![Get Your Hands Dirty On Clean Architecture](https://reflectoring.io/images/gyhdoca/cover-430_hu8fe88bb3c6bad75d8c8f89c9761fe2b5_541262_430x0_resize_box_3.png)](https://reflectoring.io/book)
 
 This is my fork of the companion code to his eBook [Get Your Hands Dirty on Clean Architecture](https://leanpub.com/get-your-hands-dirty-on-clean-architecture).
 
