@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package port.in {
+    class SendMoneyCommand {
+        - sourceAccountId : AccountId
+        - targetAccountId : AccountId
+        - money : Money;
+    }
+
+    interface SendMoneyUseCase {
+       sendMoney(SendMoneyCommand): boolean
+    }
+
+    SendMoneyUseCase -> SendMoneyCommand
+}
+
+package service {
+   class SendMoneyService {
+   }
+
+   SendMoneyUseCase <|--SendMoneyService
+}
+
+package port.out {
+    interface AccountLock {
+    	lockAccount(Account.AccountId accountId) : void
+    	releaseAccount(Account.AccountId accountId) : void
+    }
+
+    interface LoadAccountPort {
+    	Account loadAccount(AccountId, LocalDateTime) : Account
+    }
+
+    AccountLock <.. SendMoneyService
+    LoadAccountPort <.. SendMoneyService
+}
+
+
+@enduml
