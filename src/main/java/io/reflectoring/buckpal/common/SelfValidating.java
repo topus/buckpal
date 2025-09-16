@@ -1,10 +1,10 @@
 package io.reflectoring.buckpal.common;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
 import java.util.Set;
 
 public abstract class SelfValidating<T> {
@@ -20,6 +20,7 @@ public abstract class SelfValidating<T> {
    * Evaluates all Bean Validations on the attributes of this
    * instance.
    */
+  @SuppressWarnings("unchecked")
   protected void validateSelf() {
     Set<ConstraintViolation<T>> violations = validator.validate((T) this);
     if (!violations.isEmpty()) {

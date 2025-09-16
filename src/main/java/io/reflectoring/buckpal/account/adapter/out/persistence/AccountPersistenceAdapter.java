@@ -1,6 +1,6 @@
 package io.reflectoring.buckpal.account.adapter.out.persistence;
 
-import javax.persistence.EntityNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 
 import java.time.LocalDateTime;
 import java.util.List;

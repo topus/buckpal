@@ -59,7 +59,7 @@ public class ActivityWindow {
 	}
 
 	public ActivityWindow(@NonNull List<Activity> activities) {
-		this.activities = activities;
+		this.activities = new ArrayList<>(activities);
 	}
 
 	public ActivityWindow(@NonNull Activity... activities) {

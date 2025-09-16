@@ -30,3 +30,4 @@ build/
 
 ### drawio
 *.bkp
+/.claude/

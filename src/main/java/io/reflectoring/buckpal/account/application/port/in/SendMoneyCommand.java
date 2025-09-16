@@ -6,7 +6,7 @@ import io.reflectoring.buckpal.common.SelfValidating;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 @Value
 @EqualsAndHashCode(callSuper = false)
