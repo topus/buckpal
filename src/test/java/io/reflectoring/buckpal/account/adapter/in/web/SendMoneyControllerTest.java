@@ -1,17 +1,19 @@
 package io.reflectoring.buckpal.account.adapter.in.web;
 
-import io.reflectoring.buckpal.account.application.port.in.SendMoneyUseCase;
 import io.reflectoring.buckpal.account.application.port.in.SendMoneyCommand;
+import io.reflectoring.buckpal.account.application.port.in.SendMoneyUseCase;
 import io.reflectoring.buckpal.account.domain.Account.AccountId;
 import io.reflectoring.buckpal.account.domain.Money;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-import static org.mockito.BDDMockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import static org.mockito.BDDMockito.eq;
+import static org.mockito.BDDMockito.then;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = SendMoneyController.class)
 class SendMoneyControllerTest {
@@ -19,7 +21,7 @@ class SendMoneyControllerTest {
 	@Autowired
 	private MockMvc mockMvc;
 
-	@MockBean
+	@MockitoBean
 	private SendMoneyUseCase sendMoneyUseCase;
 
 	@Test
